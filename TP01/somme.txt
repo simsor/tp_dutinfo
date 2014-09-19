@@ -1,0 +1,25 @@
+// Calcul de la somme des n premiers entiers positifs
+// Entrée : n, le nombre limite
+// Sortie : La somme des entiers de 1 à n
+// Pré-condition: Nombres supérieurs à 0
+// Post-Condition: /
+
+Fonction somme_iter(n : entier) retourne entier
+Début
+	avec
+		resultat : entier
+		
+	resultat <- 0
+	pour i de 0 à n faire
+		resultat <- resultat + i
+	fin faire
+	
+	retourne resultat
+fin somme_iter
+
+fonction somme_recur(n : entier) retourne entier
+Début
+	Si n = 0 alors retourne 0
+	Sinon retourne n + somme_recur(n-1)
+	fin si
+fin somme_recur

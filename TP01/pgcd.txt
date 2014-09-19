@@ -1,0 +1,39 @@
+Fonction pgcd_recur(a : Entier, b : Entier) Retourne Entier
+Début
+    Si a=0 ou b=0 Alors Afficher "Erreur !"
+    Si a=1 ou b=1 Retourne 1 fin si
+    Si a=b Alors Retourne a
+    Sinon
+	Si a > b Alors Retourne pgcd_recur(a-b, b)
+	Sinon Retourne pgcd_recur(a, b-a)
+	Fin Si
+    Fin Si
+Fin pgcd_recur
+
+Fonction pgcd_iter(a: Entier, b : Entier) Retourne Entier
+Début
+    Tant Que (a!=b) ou (a!=1 et b!=1) Faire
+    	 Si a > b Alors
+	    a <- a-b
+	 Sinon
+	    b <- b - a
+    Fin Faire
+
+    Si a = b Alors
+       Retourne a
+    Fin Si
+
+    Si a=1 ou b=1 Alors
+       Retourne 1
+    Fin Si
+Fin 
+
+// Récursivité terminale
+Fonction factT(n : Entier, res : Entier) Retourne Entier
+Début
+    Si n=1 Alors    
+       Retourne res
+    Sinon
+	Retourne factT(n-1, n*res)
+    Fin Si
+Fin factT
