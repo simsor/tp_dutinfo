@@ -9,7 +9,7 @@ int somme_iter(int n)
 	}
 	int resultat = 0;
 	int i;
-	for(i=0; i<=n; i++)
+	for(i=0; i <= n; i++)
 	{
 		resultat = resultat + i;
 	}
@@ -19,11 +19,11 @@ int somme_iter(int n)
 int somme_recur(int n)
 {
 	if (n < 0) {
-		cout << "Le nombre doit être positif.";
+		cout << "Le nombre doit être positif." << endl;
 		return -1;
 	}
 	
-	if (n==0)
+	if (n == 0)
 		return 0;
 	else
 		return n + somme_recur(n-1);
