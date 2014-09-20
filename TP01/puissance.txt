@@ -1,42 +1,41 @@
-fonction puissance_recur(a : réel, n : entier) retourne réel
-début
-    avec b : réel
+Fonction puissance_recur(a : Réel, n : Entier) Retourne Réel
+Début
+    Avec b : Réel
     
-    si n  = 0 alors retourne 1
-    sinon
-	si n = 1 alors retourne a
-	sinon
-	    b <- puissance(a, n/2)
-	    si n mod 2 = 0 alors
-	       retourne b * b
-	    sinon
-		retourne a * b * b
-	    fin si
-	fin si
-    fin si
-fin puissance_recur
+    Si n  = 0 Alors Retourne 1
+    Sinon
+		Si n = 1 Alors Retourne a
+		Sinon
+			b <- puissance(a, n/2)
+			Si n mod 2 = 0 Alors
+				Retourne b * b
+			Sinon
+				Retourne a * b * b
+			Fin Si
+		Fin Si
+    Fin Si
+Fin puissance_recur
 
 
-fonction puissance_iter_sansastuce(a : réel, n : entier) retourne réel
-début
-    avec resultat : reel
-    	 i : entier
+Fonction puissance_iter_sansastuce(a : Réel, n : Entier) Retourne Réel
+Début
+    Avec resultat : Réel
+    	 i : Entier
     
     resultat <- 1
-    pour i de 1 à n faire
+    Pour i de 1 à n Faire
       resultat <- resultat * a
-    fin faire
-    retourne resultat
-fin puissance_iter_sansastuce
+    Fin Faire
+    Retourne resultat
+Fin puissance_iter_sansastuce
 
-fonction puissance_iter(a : réel, n : entier) retourne réel
-début
-    avec resultat : entier
-    	 b : réel
-	 i : entier
+Fonction puissance_iter(a : Réel, n : Entier) Retourne Réel
+Début
+    Avec resultat : Entier
+    	 b : Réel
+		i : Entier
     
     i <- n
-    tant que i != 0 faire
+    Tant que i != 0 Faire
 
-    si i mod 2 = 0 alors
-       
+    Si i mod 2 = 0 Alors

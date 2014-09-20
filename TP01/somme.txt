@@ -4,22 +4,22 @@
 // Pré-condition: Nombres supérieurs à 0
 // Post-Condition: /
 
-Fonction somme_iter(n : entier) retourne entier
+Fonction somme_iter(n : Entier) Retourne Entier
 Début
-	avec
-		resultat : entier
+	Avec
+		resultat : Entier
 		
 	resultat <- 0
-	pour i de 0 à n faire
+	Pour i de 0 à n Faire
 		resultat <- resultat + i
-	fin faire
+	Fin Faire
 	
-	retourne resultat
-fin somme_iter
+	Retourne resultat
+Fin somme_iter
 
-fonction somme_recur(n : entier) retourne entier
+Fonction somme_recur(n : Entier) Retourne Entier
 Début
-	Si n = 0 alors retourne 0
-	Sinon retourne n + somme_recur(n-1)
-	fin si
-fin somme_recur
+	Si n = 0 Alors Retourne 0
+	Sinon Retourne n + somme_recur(n-1)
+	Fin Si
+Fin somme_recur
