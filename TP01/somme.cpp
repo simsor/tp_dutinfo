@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 int somme_iter(int n)
@@ -35,8 +36,23 @@ int main()
 	cout << "Entrez un nombre : ";
 	cin >> nbr;
 	cout << "Somme des entiers de 1 à " << nbr << " : " << endl;
+
+	clock_t temps_debut = clock();
+	int i;
+	for (i = 0; i < 10000000; i++) {
+		somme_recur(nbr);
+	}
+
 	cout << "Recursif : " << somme_recur(nbr) << endl;
+	cout << "\t" << float(clock() - temps_debut) / CLOCKS_PER_SEC << "s" << endl;
+
+	temps_debut = clock();
+	for (i = 0; i < 10000000; i++) {
+		somme_iter(nbr);
+	}
+
 	cout << "Itératif : " << somme_iter(nbr) << endl;
+	cout << "\t" << float(clock() - temps_debut) / CLOCKS_PER_SEC << "s" << endl;
 
 	return 0;
 }

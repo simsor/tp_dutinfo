@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 using namespace std;
 double puiss_recur(const double a, const int n)
 {
@@ -36,9 +37,22 @@ int main()
 	cout << "Entrez son exposant : ";
 	cin >> n;
 
+	int i;
 	cout << a << " puissance " << n << " = " << endl;
-	cout << "Itératif : " << puiss_iter_sansastuce(a, n) << endl;
-	cout << "Récursif : " << puiss_recur(a, n) << endl;
 
+	clock_t temps_debut = clock();
+	for (i = 0; i < 1000000000; i++) {
+		puiss_iter_sansastuce(a, n);
+	}
+	cout << "Itératif : " << puiss_iter_sansastuce(a, n) << endl;
+	cout << "\t" << float(clock() - temps_debut) / CLOCKS_PER_SEC << "s" << endl;
+
+	temps_debut = clock();
+	for (i = 0; i < 1000000000; i++) {
+		puiss_recur(a, n);
+	}
+	cout << "Récursif : " << puiss_recur(a, n) << endl;
+	cout << "\t" << float(clock() - temps_debut) / CLOCKS_PER_SEC << "s" << endl;
+	
 	return 0;
 }
