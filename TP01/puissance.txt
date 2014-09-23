@@ -1,8 +1,14 @@
+// Fonction calculant a à la puissance n
+// Entrée : a, un réel et n, un entier > 0
+// Sortie : le résultat de a^n, ou -1 si une erreur s'est produite
+// Pré-condition : Aucune
+// Post-condition : Aucune
 Fonction puissance_recur(a : Réel, n : Entier) Retourne Réel
 Début
     Avec b : Réel
     
-    Si n  = 0 Alors Retourne 1
+    Si n < 0 Alors Retourne -1 Fin Si
+    Si n = 0 Alors Retourne 1
     Sinon
 		Si n = 1 Alors Retourne a
 		Sinon
@@ -22,6 +28,7 @@ Début
     Avec resultat : Réel
     	 i : Entier
     
+    Si n < 0 Alors Retourne -1 Fin Si
     resultat <- 1
     Pour i de 1 à n Faire
       resultat <- resultat * a

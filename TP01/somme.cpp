@@ -39,20 +39,24 @@ int main()
 
 	clock_t temps_debut = clock();
 	int i;
-	for (i = 0; i < 10000000; i++) {
+	/*for (i = 0; i < 10000000; i++) {
 		somme_recur(nbr);
-	}
+		}*/
 
+	if (somme_recur(nbr) == -1){
+		return 1;
+	}
+		
 	cout << "Recursif : " << somme_recur(nbr) << endl;
-	cout << "\t" << float(clock() - temps_debut) / CLOCKS_PER_SEC << "s" << endl;
+	//cout << "\t" << float(clock() - temps_debut) / CLOCKS_PER_SEC << "s" << endl;
 
 	temps_debut = clock();
-	for (i = 0; i < 10000000; i++) {
+	/*for (i = 0; i < 10000000; i++) {
 		somme_iter(nbr);
-	}
+		}*/
 
 	cout << "Itératif : " << somme_iter(nbr) << endl;
-	cout << "\t" << float(clock() - temps_debut) / CLOCKS_PER_SEC << "s" << endl;
+	//cout << "\t" << float(clock() - temps_debut) / CLOCKS_PER_SEC << "s" << endl;
 
 	return 0;
 }

@@ -1,14 +1,15 @@
 // Calcul de la somme des n premiers entiers positifs
-// Entrée : n, le nombre limite
-// Sortie : La somme des entiers de 1 à n
-// Pré-condition: Nombres supérieurs à 0
+// Entrée : n, le nombre limite > 0
+// Sortie : La somme des entiers de 1 à n, ou -1 si le nombre n'est pas valide
+// Pré-condition: /
 // Post-Condition: /
 
 Fonction somme_iter(n : Entier) Retourne Entier
 Début
 	Avec
 		resultat : Entier
-		
+	
+	Si n < 0 Alors Retourne -1
 	resultat <- 0
 	Pour i de 0 à n Faire
 		resultat <- resultat + i

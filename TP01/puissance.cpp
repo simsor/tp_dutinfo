@@ -4,6 +4,10 @@ using namespace std;
 double puiss_recur(const double a, const int n)
 {
 	double b;
+
+	if (n < 0)
+		return -1;
+			
 	if (n == 0)
 		return 1;
 	else if(n == 1)
@@ -21,6 +25,10 @@ double puiss_iter_sansastuce(const double a, const int n)
 {
 	double resultat = 1;
 	int i;
+
+	if (n < 0)
+		return -1;
+	
 	for(i=0; i < n; i++)
 	{
 	    resultat = resultat*a;
@@ -37,6 +45,11 @@ int main()
 	cout << "Entrez son exposant : ";
 	cin >> n;
 
+	if (puiss_recur(a, n) == -1) {
+		cout << "L'exposant doit être positif." << endl;
+		return 1;
+	}
+	
 	int i;
 	cout << a << " puissance " << n << " = " << endl;
 
