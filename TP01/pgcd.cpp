@@ -4,8 +4,9 @@ using namespace std;
 
 int pgcd_recur(const int a, const int b)
 {
-	if (a == 0)
-		cout<<"Erreur";
+	if (a <= 0)
+		return -1;
+	
 	if (a == 1 || b == 1)
 		return 1;
 	if(a == b)
@@ -20,6 +21,10 @@ int pgcd_iter(const int a, const int b)
 {
 	int tempa=a;
 	int tempb=b;
+
+	if (a <= 0 || b <= 0)
+		return -1;
+	
 	while((tempa != tempb) && (tempa != 1 && tempb != 1))
 	{
 		if (tempa > tempb)
@@ -47,6 +52,11 @@ int main()
 
 	int i;
 	cout << "PGCD de " << a  << " et " << b << endl;
+
+	if (pgcd_recur(a, b) == -1) {
+		cout << "Veuillez entrer des nombres positifs." << endl;
+		return 1;
+	}
 
 	clock_t temps_debut = clock();
 	for (i = 0; i < 10000000; i++) {

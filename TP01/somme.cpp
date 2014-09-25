@@ -4,10 +4,9 @@ using namespace std;
 
 int somme_iter(int n)
 {
-	if (n < 0) {
-		cout << "Le nombre doit être positif.";
+	if (n < 0) 
 		return -1;
-	}
+	
 	int resultat = 0;
 	int i;
 	for(i=0; i <= n; i++)
@@ -19,10 +18,8 @@ int somme_iter(int n)
 
 int somme_recur(int n)
 {
-	if (n < 0) {
-		cout << "Le nombre doit être positif." << endl;
+	if (n < 0) 
 		return -1;
-	}
 	
 	if (n == 0)
 		return 0;
@@ -37,26 +34,27 @@ int main()
 	cin >> nbr;
 	cout << "Somme des entiers de 1 à " << nbr << " : " << endl;
 
+	if (somme_recur(nbr) == -1) {
+		cout << "Veuillez entrer un nombre positif." << endl;
+		return 1;
+	}
+	
 	clock_t temps_debut = clock();
 	int i;
-	/*for (i = 0; i < 10000000; i++) {
+	for (i = 0; i < 10000000; i++) {
 		somme_recur(nbr);
-		}*/
-
-	if (somme_recur(nbr) == -1){
-		return 1;
 	}
 		
 	cout << "Recursif : " << somme_recur(nbr) << endl;
-	//cout << "\t" << float(clock() - temps_debut) / CLOCKS_PER_SEC << "s" << endl;
+	cout << "\t" << float(clock() - temps_debut) / CLOCKS_PER_SEC << "s" << endl;
 
 	temps_debut = clock();
-	/*for (i = 0; i < 10000000; i++) {
+	for (i = 0; i < 10000000; i++) {
 		somme_iter(nbr);
-		}*/
+	}
 
 	cout << "Itératif : " << somme_iter(nbr) << endl;
-	//cout << "\t" << float(clock() - temps_debut) / CLOCKS_PER_SEC << "s" << endl;
+	cout << "\t" << float(clock() - temps_debut) / CLOCKS_PER_SEC << "s" << endl;
 
 	return 0;
 }
