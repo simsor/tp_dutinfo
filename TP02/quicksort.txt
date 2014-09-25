@@ -1,0 +1,33 @@
+Procédure quicksort(tab:entier[], deb: Entier, finn: Entier; tab: entier[])
+Début
+	Avec a : entier
+		 b : entier
+		 pivot : entier
+		 temp : entier
+
+	a <- deb
+	b <- finn
+	pivot <- tab[(finn+deb)/2]
+
+    Si (finn-deb)+1 <= 1 Alors // Le tableau ne fait que 1
+        Retourne
+    Fin Si 
+
+	Tant que a<=b Faire
+		Tant que a<pivot Faire
+			a <- a+1
+		Fin Faire
+		Tant Que b>pivot Faire
+			b <- b-1
+		Fin Faire
+		Si a<=b Alors
+			temp <- tab[a]
+			tab[a] <- tab[b]
+			tab[b] <- temp
+            a <- a + 1
+            b <- b - 1
+		Fin Si
+	Fin Faire
+	quicksort(tab, deb, b)
+	quicksort(tab, a, finn)
+Fin quicksort
