@@ -43,13 +43,11 @@ void afficherTab(int tab[], int taille)
 
 int main()
 {
-	//int simon[]={6,4,3,9,4,7,7,5,3,1,2};
-	int simon[]={9,2,5,6,2,8,4,3,1};
-	afficherTab(simon, 9);
-	quicksort(simon, 0, 8);
+	int tableau[]={4,6,2,3,9,8,1};
+	afficherTab(tableau, 7);
+	quicksort(tableau, 0, 6);
 	cout << endl;
-	afficherTab(simon, 9);
-
-	system("pause");
+	afficherTab(tableau, 7);
+	cout << endl;
 	return (0);
 }

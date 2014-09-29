@@ -1,0 +1,38 @@
+* Jeux d'essai
+| Cas testé     | Entrée            | Résultat          |
+|---------------+-------------------+-------------------|
+| Cas général   | {4,6,2,3,9,8,1}   | {1,2,3,4,6,8,9}   |
+| Nombres égaux | {8,3,4,2,2,9,1,5} | {1,2,2,3,4,5,8,9} |
+| Déjà trié     | {1,2,3,4,5,6,7}   | {1,2,3,4,5,6,7}   |
+| Tableau vide  | {}                | {}                |
+|---------------+-------------------+-------------------|
+
+Captures d'écran :
+
+[[./Ex3_scr1.png]]
+
+[[./Ex3_scr2.png]]
+
+[[./Ex3_scr3.png]]
+
+[[./Ex3_scr4.png]]
+
+
+* Notes
+Présentation des exercices (titres)
+
+** Exercice 1
+Analyse -> faire des schéma *s*
+Schémas -> $p2 au lieu de *p2
+(BTW, les schémas sont géniaux)
+
+** Exercice 2
+Code -> 
+- Numéros de ligne ? (A voir, peut-être bug LibreOffice)
+- Police Monospace ?
+- Gros blanc à la fin des codes
+
+** Exercice 3
+   Analyse -> (Fin) au *x* quels
+   Changer le nom du tableau (simon -> tableau)
+   => Changé dans le CPP
