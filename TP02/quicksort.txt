@@ -14,10 +14,10 @@ Début
     Fin Si 
 
 	Tant que a<=b Faire
-		Tant que a<pivot Faire
+		Tant que tab[a]<pivot Faire
 			a <- a+1
 		Fin Faire
-		Tant Que b>pivot Faire
+		Tant Que tab[b]>pivot Faire
 			b <- b-1
 		Fin Faire
 		Si a<=b Alors
