@@ -77,8 +77,8 @@ Fin supprEnTete
 //Fonction permettant de consulter la personne en tête de file
 //Paramètres d'entrée : Une file d'attente
 //Valeur retournée : La personne en tête
-//Pré-conditions : liste initialisée
-
+//Pré-conditions : file initialisée
+//                 file ayant une tête (l > 0)
 Fonction consulterTete( f: FileAttente) Retourne maillon
 Début
 	Retourne Contenu(f.tete)

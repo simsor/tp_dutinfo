@@ -13,7 +13,8 @@ using namespace std;
 int main(int argc, const char * argv[]) {
     
     int choix;
-    struct maillon tmp;
+    struct maillon *p_maillon;
+	struct maillon maillon_temp;
     int numero;
     struct FileAttente f;
     init(f);
@@ -34,15 +35,20 @@ int main(int argc, const char * argv[]) {
             case 1:
                 cout << "Entrez le numéro de la personne : ";
                 cin >> numero;
-                tmp.numero=numero;
-                ajoutEnQueue(f, &tmp);
+				p_maillon = new maillon;
+                (*p_maillon).numero = numero;
+                ajoutEnQueue(f, p_maillon);
                 break;
             case 2:
                 supprEnTete(f);
                 break;
             case 3:
-                tmp = consulterTete(f);
-                cout << "Le numéro de la personne est : " << tmp.numero << endl;
+				if (calculerLongueur(f) > 0) {
+					maillon_temp = consulterTete(f);
+					cout << "Le numéro de la personne est : " << maillon_temp.numero << endl;
+				}
+				else
+					cout << "La liste est vide, il n'y a pas de tête." << endl;
                 break;
             case 4:
                 cout << "Longueur de la file d'attente : " << calculerLongueur(f) << endl;

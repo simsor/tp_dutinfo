@@ -78,7 +78,8 @@ void supprEnTete(struct FileAttente &f)
 //Fonction permettant de consulter la personne en tête de file
 //Paramètres d'entrée : Une file d'attente
 //Valeur retournée : La personne en tête
-//Pré-conditions : liste initialisée
+//Pré-conditions : file initialisée
+//                 file ayant une tête (l > 0)
 struct maillon consulterTete( struct FileAttente f)
 {
     return *(f.debut);
