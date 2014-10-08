@@ -6,6 +6,7 @@ Début
          p_maillon : Pointeur maillon
          maillon_temp : maillon
          numero : Entier
+         nom : Chaîne
          f : FileAttente
          continuer : Booléen
 
@@ -26,8 +27,11 @@ Début
             Cas 1:
                 Afficher "Entrer le numéro de la personne : "
                 Saisir numero
+                Afficher "Entrer le nom de la personne : "
+                Saisir nom
                 p_maillon <- Nouveau maillon
                 (*p_maillon).numero <- numero
+                (*p_maillon).nom <- nom
                 ajoutEnQueue(f, p_maillon)
             Cas 2:
                 supprEnTete(f)
@@ -36,6 +40,8 @@ Début
                     maillon_temp <- consulterTete(f)
                     Afficher "Le numéro de la personne est : "
                     Afficher maillon_temp.numero
+                    Afficher "Son nom est : "
+                    Afficher maillon_temp.nom
                 Sinon
                     Afficher "La file est vide, il n'y a pas de tête"
                 Fin si

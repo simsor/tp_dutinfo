@@ -7,6 +7,7 @@ type FileAttente = {
 		
 type maillon = {
 		numero : Entier
+                nom : Chaîne
 		suivant : Pointeur maillon
 		}
 		
@@ -68,8 +69,17 @@ Début
 	tmp <- f.tete
 	Si tmp ≠ NULL Alors
 		tmp <- (*tmp).suivant
-		Détruire f.tete
-		f.tete <- tmp
+		
+		Si f.debut = f.fin Alors // Il n'y a qu'un élément
+		   Détruire f.tete
+		   f.tete = NULL
+		   f.fin = NULL
+		Sinon
+			Détruire f.tete
+			f.tete <- tmp
+		Fin si
+
+
 	Fin si
 Fin supprEnTete
 

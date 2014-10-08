@@ -14,6 +14,7 @@
 struct maillon {
     int numero;
     struct maillon *suivant;
+	char nom[80];
 };
 
 struct FileAttente {

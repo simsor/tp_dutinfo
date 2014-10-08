@@ -28,10 +28,14 @@ void desInit(struct FileAttente &f)
     struct maillon *tmp;
     tmp = f.debut;
     
-    while ((*tmp).suivant != NULL) {
-        tmp = (*tmp).suivant;
-        supprEnTete(f);
-    }
+    // while ((*tmp).suivant != NULL) {
+    //     tmp = (*tmp).suivant;
+    //     supprEnTete(f);
+    // }
+
+	while (f.debut != NULL) {
+		supprEnTete(f);
+	}
     
     f.debut = NULL;
     f.fin = NULL;
@@ -42,10 +46,10 @@ void desInit(struct FileAttente &f)
 //						Un pointeur de maillon
 //Paramètres de sortie : Une file d'attente ayant un élément en plus
 //Pré-conditions : La file est initialisée
-//Post-conditions : La fil a l'élément passé en paramètre en queue
+//Post-conditions : La file a l'élément passé en paramètre en queue
 void ajoutEnQueue( struct FileAttente &f, struct maillon *p)
 {
-    if ((f.fin) != NULL)
+    if (f.fin != NULL)
     {
         (*(f.fin)).suivant=p;
         (f.fin) = p;
@@ -70,8 +74,16 @@ void supprEnTete(struct FileAttente &f)
     if (tmp != NULL)
     {
         tmp = (*tmp).suivant;
-        delete f.debut;
-        f.debut = tmp;
+		
+		if (f.debut == f.fin) { // Il n'y a qu'un élément
+			delete f.debut;
+			f.debut = NULL;
+			f.fin = NULL;
+		}
+		else {
+			delete f.debut;
+			f.debut = tmp;
+		}
     }
 }
 
