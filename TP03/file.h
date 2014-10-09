@@ -26,7 +26,7 @@ void init(struct FileAttente &f);
 void desInit(struct FileAttente &f);
 void ajoutEnQueue( struct FileAttente &f, struct maillon *p);
 void supprEnTete( struct FileAttente &f);
-struct maillon consulterTete( struct FileAttente f);
-int calculerLongueur( struct FileAttente f);
+struct maillon consulterTete( const struct FileAttente f);
+int calculerLongueur( const struct FileAttente f);
 
 #endif /* defined(__TP03__file__) */

@@ -19,7 +19,8 @@ Début
         Afficher "2. Retirer la personne en tête"
         Afficher "3. Consulter la personne en tête de file"
         Afficher "4. Calculer la longueur de la file d'attente"
-        Afficher "5. QUITTER"
+		Afficher "5. Désinitialiser la liste"
+        Afficher "6. QUITTER"
         Afficher "Saisir choix : "
         Saisir choix
 
@@ -48,7 +49,10 @@ Début
             Cas 4:
                 Afficher "Longueur de la file d'attente : "
                 Afficher calculerLongueur(f)
-            Cas 5:
+			Cas 5:
+				desInit(f)
+				Afficher "Liste désinitialisée"
+            Cas 6:
                 continuer <- Faux
             Défaut:
                 Afficher "Votre choix n'est pas valide"

@@ -92,7 +92,7 @@ void supprEnTete(struct FileAttente &f)
 //Valeur retournée : La personne en tête
 //Pré-conditions : file initialisée
 //                 file ayant une tête (l > 0)
-struct maillon consulterTete( struct FileAttente f)
+struct maillon consulterTete( const struct FileAttente f)
 {
     return *(f.debut);
 }
@@ -101,7 +101,7 @@ struct maillon consulterTete( struct FileAttente f)
 //Paramètres d'entrée : une file d'attente
 //Valeur retournée : la taille de la file
 //Pré-conditions : la file est initialisée
-int calculerLongueur(struct FileAttente f)
+int calculerLongueur(const struct FileAttente f)
 {
     int n;
     struct maillon *p;

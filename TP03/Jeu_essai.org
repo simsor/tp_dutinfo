@@ -1,0 +1,28 @@
+* Jeux d'essai
+
+Les jeux d'essai sont exécutés en continuité
+
+| Cas testé                           |         Entrée | Résultat                |
+|-------------------------------------+----------------+-------------------------|
+| Ajout d'une personne en queue       | 1 puis 2, Jean | Personne ajoutée        |
+| Voir la personne en tête            |              3 | 3, Jean                 |
+| Ajout d'une autre personne en queue | 1 puis 5, Marc | Personne ajoutée        |
+| Voir la personne en tête            |              3 | 3, Jean                 |
+| Supprimer la personne en tête       |              2 | Personne supprimée      |
+| Voir la personne en tête            |              3 | 5, Marc                 |
+| Calculer la longueur de la file     |              4 | 1                       |
+| Désinitialiser la file              |              5 | File désinitialisée     |
+| Calculer la longueur de la file     |              4 | 0                       |
+| Voir la personne en tête            |              3 | Aucune personne en tête |
+| Supprimer la personne en tête       |              2 | Personne supprimée      |
+|-------------------------------------+----------------+-------------------------|
+
+On remarque que le programme ne plante pas lorsqu'on essaie de supprimer une personne n'existant
+pas.
+De même pour regarder la tête alors que la file est vide.
+
+* Corrections
+** Programme principal
+chainage -> chaînage
+nous créeons -> nous créons
+comprennant -> comprenant
