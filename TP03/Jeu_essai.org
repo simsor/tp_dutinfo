@@ -1,6 +1,6 @@
 * Jeux d'essai
 
-Les jeux d'essai sont exécutés en continuité
+Les jeux d'essai sont exécutés en continuité.
 
 | Cas testé                           |         Entrée | Résultat                |
 |-------------------------------------+----------------+-------------------------|
