@@ -1,0 +1,96 @@
+Module Pile
+
+Type Pile = {
+		tete : Pointeur CompoPile
+		}
+
+Type CompoPile = {
+		contenu : FileAttente
+		suivant : Pointeur CompoPile
+		}
+
+//Procédure permettant d'initialiser une pile.
+//Paramètres de sortie : un pile initialisée
+//Post-condition : la pile est initialisée
+
+Procédure initPile(; p : Pile)
+Début
+	p.tete <- NULL
+Fin initPile
+
+
+//Procédure permettant de désinitialiser une pile.
+//Paramètres d'entrée : une pile
+//Paramètres de sortie : une pile
+//Pré-condition : la pile est initialisée
+//Post-condition : la pile est vide et désinitialisée
+
+Procédure desinitPile(p : Pile ; p :Pile)
+Début
+	Tant que p.tete ≠ NULL Faire
+		depiler(p)
+	Fin Faire
+	p.tete <- NULL
+Fin desinitPile
+
+
+//Procédure permettant d'empiler un élément sur la pile
+//Paramètres Entrée : une pile et un élément de pile à ajouter
+//Paramètre de sortie : la pile ayant l'élément en tête
+//Pré-condition : la pile est initialisée
+//Post-condition : la pile possède l'élément ajouté en tête
+Procédure empiler(p : pile, cp : Pointeur CompoPile ; p : pile)
+Début
+	Avec tmp : Pointeur CompoPile
+	
+	tmp <- p.tete
+	p.tete <- cp
+	Si p.tete != NULL Alors
+		(Contenu p.tete).suivant <- tmp
+	Fin si
+Fin empiler
+
+//Procédure permettant de dépiler un élément sur la pile
+//Paramètres Entrée : une pile
+//Paramètre de sortie : la pile ayant l'élément en tête supprimé
+//Pré-condition : la pile est initialisée et non vide
+//Post-condition : la pile avec l'élément de tête en moins
+Procédure depiler(p : Pile ; p : Pile)
+Début
+	Avec tmp : Pointeur CompoPile
+	
+	tmp <- (Contenu p.tete).suivant
+	Détruire p.tete
+	p.tete <- tmp		
+Fin depiler
+
+
+//Fonction permettant d'obtenir la tête de la pile
+//Paramètres Entrée : une pile
+//Valeur retournée : Le composant de pile (CompoPile) en tête
+//Pré-condition : la pile est initialisée et non-vide
+
+Fonction obtenirTete( p:Pile) Retourne CompoPile
+Début
+	Retourne Contenu p.tete
+Fin obtenirTete
+
+//Fonction permettant d'obtenir la hauteur de la pile
+//Paramètres d'entrée : un pile
+//Valeur retournée : la hauteur de la pile
+//Pré-condition : La pile est initialisée
+
+Fonction hauteur( p : Pile) Retourne Entier
+Début
+	Avec tmp : Pointeur CompoPile
+		 cpt : Entier
+	cpt <- 0
+	tmp <- p.tete
+	Tant Que (tmp ≠ NULL) Faire
+		n <- n + 1
+		tmp <- (Contenu tmp).suivant
+	Fin Faire
+	Retourne cpt
+Fin hauteur
+
+Fin Pile
