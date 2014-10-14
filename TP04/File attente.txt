@@ -1,0 +1,140 @@
+Module FileDAttente
+
+type FileAttente = {
+		tete : Pointeur maillon
+		queue : Pointeur maillon
+		}
+		
+type maillon = {
+		numero : Entier
+		suivant : Pointeur maillon
+		}
+		
+//Initialisation d'une file d'attente
+//Paramètre de sortie : Un file d'attente
+//Post-condition : La file d'attente est initialisée		
+Procédure init(; f : FileAttente)
+Début
+	f.tete <- NULL
+	f.queue <- NULL
+Fin init
+
+// Procédure permettant de désinitialiser une liste d'attente
+// Paramètre d'entrée : une liste d'attente
+// Paramètre de sortie : une liste d'attente
+// Pré-condition : la liste est initialisée
+// Post-condition : la liste est vidée et désinitialisée
+Procédure desInit(f : FileAttente; f : FileAttente)
+Début
+	Avec tmp : Pointeur maillon
+	tmp <- f.tete
+	
+	Tant que tmp.suivant != NULL Faire
+		tmp <- tmp.suivant
+		supprEnTete(f ; f)
+	Fin faire
+	
+	f.tete <- NULL
+	f.queue <- NULL
+Fin desInit
+
+//Procédure permettant l'ajout d'un élément en queue de file
+//Paramètres d'entrée : Une file d'attente
+//						Un pointeur de maillon
+//Paramètres de sortie : Une file d'attente ayant un élément en plus
+//Pré-conditions : La file est initialisée
+//Post-conditions : La fil a l'élément passé en paramètre en queue
+		
+Procédure ajoutEnQueue( f: FileAttente, p: Pointeur maillon ; f: FileAttente)
+Début
+	Si (f.queue) ≠ NULL Alors
+		(Contenu (f.queue)).suivant <- p
+		(f.queue) <- p
+	Sinon
+		(f.queue) <- p
+		(f.tete) <- p
+	FinSi
+Fin ajoutEnQueue
+
+// Procédure permettant de retirer l'élément en tête de file
+// Paramètres d'entrée : Une file d'attente
+// Paramètre de sortie : Une file d'attente sans l'élément de tête
+// Pré-condition : file initialisée
+// Post-condition : L'élément de tête a été supprimé
+Procédure supprEnTete( f : FileAttente ; f : FileAttente)
+Début
+	Avec tmp : Pointeur maillon
+	
+	tmp <- f.tete
+	Si tmp ≠ NULL Alors
+		tmp <- (*tmp).suivant
+		Détruire f.tete
+		f.tete <- tmp
+	Fin si
+Fin supprEnTete
+
+
+//Fonction permettant de consulter la personne en tête de file
+//Paramètres d'entrée : Une file d'attente
+//Valeur retournée : La personne en tête
+//Pré-conditions : liste initialisée
+
+Fonction consulterTete( f: FileAttente) Retourne maillon
+Début
+	Retourne Contenu(f.tete)
+Fin consulterTete
+
+
+//Fonction permettant de calculer la longueur de la file d'attente
+//Paramètres d'entrée : une file d'attente
+//Valeur retournée : la taille de la file
+//Pré-conditions : la file est initialisée
+Fonction calculerLongueur(f : FileAttente) Retourne Entier
+Début
+	Avec n : Entier
+		 p : Pointeur maillon
+	n <- 0
+	p <- f.tete
+	
+	TantQue p != NULL Faire
+		n <- n + 1
+		p <- p.suivant
+	Fin faire
+	
+	Retourne n
+Fin calculerLongueur
+
+//Fonction permettant de dupliquer une file
+//Paramètres d'entrée : une file
+//Valeur retournée : la même file
+//Pré-condition : la file est initialisée
+Fonction dupFile( f : FileAttente) Retourne FileAttente
+Début
+	 Avec nf : FileAttente
+	 	p_original : Pointeur Maillon
+	 	p_nouveau : Pointeur Maillon
+	 Si f.tete ≠ NULL Faire
+	 	p_original <- f.tete
+		 p_nouveau <- Nouveau Maillon
+		 nf.tete <- p_nouveau
+	 	Tant Que p_original ≠ NULL Faire
+	 		(Contenu p_nouveau).nom <- (Contenu p_original).nom
+		 	(Contenu p_nouveau).numero <- (Contenu p_original).numero
+	 	
+		 	p_original <- (Contenu p_original).suivant
+	 		Si p_original ≠ NULL Alors
+	 			(Contenu p_nouveau).suivant <- Nouveau Maillon
+		 		(Contenu p_nouveau) <- (Contenu p_nouveau).suivant
+			Sinon
+				(Contenu p_nouveau).suivant <- NULL
+			Fin Si
+		 Fin Faire
+		 nf.fin <- p_nouveau
+	Sinon
+		nf.tete <- NULL
+		nf.queue <- NULL
+	Fin Si
+	Retourne nf
+Fin
+
+Fin FileAttente
