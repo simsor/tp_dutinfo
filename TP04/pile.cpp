@@ -61,7 +61,7 @@ void depiler(struct Pile &p)
 //Paramètres Entrée : une pile
 //Valeur retournée : Le composant de pile (CompoPile) en tête
 //Pré-condition : la pile est initialisée et non-vide
-struct CompoPile obtenirTete(struct Pile p)
+struct CompoPile obtenirTete(const struct Pile p)
 {
     return *p.tete;
 }
@@ -70,7 +70,7 @@ struct CompoPile obtenirTete(struct Pile p)
 //Paramètres d'entrée : un pile
 //Valeur retournée : la hauteur de la pile
 //Pré-condition : La pile est initialisée
-int hauteur(struct Pile p)
+int hauteur(const struct Pile p)
 {
     struct CompoPile *tmp;
     int cpt = 0;

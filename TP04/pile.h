@@ -26,7 +26,7 @@ void initPile( struct Pile &p);
 void desinitPile(struct Pile &p);
 void empiler(struct Pile &p, struct CompoPile *cp);
 void depiler(struct Pile &p);
-struct CompoPile obtenirTete(struct Pile p);
-int hauteur(struct Pile p);
+struct CompoPile obtenirTete(const struct Pile p);
+int hauteur(const struct Pile p);
 
 #endif /* defined(__TP03__pile__) */
