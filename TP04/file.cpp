@@ -136,6 +136,7 @@ struct FileAttente dupFile (struct FileAttente f)
         while (p_original != NULL)
         {
             //(*p_nouveau).nom = (*p_original).nom;
+			strcpy((*p_nouveau).nom, (*p_original).nom);
             (*p_nouveau).numero = (*p_original).numero;
             p_original = (*p_original).suivant;
             if (p_original != NULL)

@@ -10,6 +10,8 @@ Début
          f : FileAttente
          continuer : Booléen
          historique : Pile
+		 p_tmpcompo : Pointeur CompoPile
+		 tmpcompo : CompoPile
 
 	initPile(historique)
     init(f)
@@ -26,7 +28,15 @@ Début
         Afficher "7. QUITTER"
         Afficher "Saisir choix : "
         Saisir choix
-
+		
+		Si choix = 1 ou choix = 2 ou choix = 5 Alors
+		   // Choix destructif, on sauvegarde
+		   filetemp <- dupFile(f)
+		   p_tmpcompo <- nouveau CompoPile
+		   (*p_tmpcompo).contenu <- filetemp
+		   empiler(historique, p_tmpcompo)
+		Fin si
+		
         Selon choix Faire
             Cas 1:
                 Afficher "Entrer le numéro de la personne : "
@@ -55,8 +65,16 @@ Début
 			Cas 5:
 				desInit(f)
 				Afficher "Liste désinitialisée"
-			Cas 6:
-				
+
+			Cas 6: // Undo
+               Si hauteur(historique) > 0 Alors
+                  tmpcompo <- obtenirTete(historique)
+                  f <- tmpcompo.contenu
+                  depiler(historique)
+               Sinon
+                  Afficher "Il n'y a rien à annuler"
+			   Fin si
+
             Cas 7:
                 continuer <- Faux
             Défaut:

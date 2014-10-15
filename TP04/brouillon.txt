@@ -1,0 +1,25 @@
+Avec f : FileAttente
+	 historique : Pile
+	 p_tmpcompo : Pointeur CompoPile
+	 tmpcompo : CompoPile
+
+init(f)
+initPile(historique)
+
+// On sauvegarde la file actuelle
+// Seulement si l'action choisie modifie la file !
+filetemp <- dupFile(f)
+p_tmpcompo <- nouveau CompoPile
+(*p_tmpcompo).contenu <- filetemp
+empiler(historique, p_tmpcompo)
+
+Là, y'a le switch...
+// On fait les modifs
+ajouterEnTete(f, {"Test", 2})
+supprimerEnTete(f)
+... blablabla
+
+// UNDO
+tmpcompo <- obtenirTete(historique)
+f <- tmpcompo.contenu
+depiler(historique)

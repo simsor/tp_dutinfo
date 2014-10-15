@@ -10,6 +10,7 @@
 #define __TP03__file__
 
 #include <stdio.h>
+#include <string.h>
 
 struct maillon {
     int numero;
