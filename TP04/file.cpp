@@ -122,7 +122,7 @@ int calculerLongueur(const struct FileAttente f)
 //Paramètres d'entrée : une file
 //Valeur retournée : la même file
 //Pré-condition : la file est initialisée
-struct FileAttente dupFile (struct FileAttente f)
+struct FileAttente dupFile (const struct FileAttente f)
 {
     struct FileAttente nf;
     struct maillon *p_original;
