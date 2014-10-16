@@ -1,0 +1,35 @@
+* Jeux d'essai
+
+Note : Nous ne retestons pas la structure file, celle-ci ayant déjà été testée dans le TP précédent. 
+Les actions sont effectuées les unes à la suite des autres
+
+| Cas testé                                |             Entrée | Résultat                |
+|------------------------------------------+--------------------+-------------------------|
+| Annuler alors qu'il n'y a rien à annuler |                  6 | Il n'y a rien à annuler |
+| Annuler un ajout                         | 1, puis 3, Marc. 6 | Annulé                  |
+| Vérification                             |                  3 | La liste est vide       |
+| Ajouter deux personnes                   |    1, puis 2, Jean | Personne ajoutée        |
+|                                          |    1, puis 7, Alex | Personne ajoutée        |
+| Supprimer une personne                   |                  2 | Personne supprimée      |
+| Consulter la tête de file                |                  3 | Alex 7                  |
+| Annuler                                  |                  6 | Annulé                  |
+| Consulter la personne en tête de file    |                  3 | Jean 2                  |
+| Désinitialiser la liste                  |                  5 | Désinitialisée          |
+| Vérification                             |                  4 | Longueur : 0            |
+| Annuler                                  |                  6 | Annulé                  |
+| Calculer la longueur                     |                  4 | Longueur : 2            |
+| Consulter la tête de file                |                  3 | Jean 2                  |
+|------------------------------------------+--------------------+-------------------------|
+
+
+
+* Corrections
+** Module Pile
+Initialiser le pointeur tête de la *pileà* null.
+
+Nous ajoutous
+
+** Algorithme principal
+l’aciton
+Si sont choix est modifie la file
+dejà
