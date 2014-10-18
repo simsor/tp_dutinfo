@@ -1,0 +1,119 @@
+Module listeCirculaire
+
+Type maillon = {
+	numero : Entier
+	suivant : Pointeur maillon
+	}
+	
+//Procédure permettant d'initialiser la liste circulaire
+//Paramètre de sortie : une liste circulaire
+//Post-condition : la liste est initialisée
+Procédure init(; p : Pointeur maillon)
+Début
+	p <- NULL
+Fin init
+
+//Procédure permettant de désinitaliser la liste circulaire
+//Paramètre d'entrée : une liste circulaire initialisée
+//Paramètre de sortie : une liste circulaire vide et désinitialisée
+//Pré-condition : la liste est initialisée
+//Post-condition : la liste est vide et désinitialisée
+Procédure desinit(p : Pointeur maillon ; p : Pointeur maillon)
+Début
+	Tant Que p ≠ NULL Faire
+		supp(p)
+	Fin Faire
+Fin desinit
+
+//Procédure permettant de supprimer le maillon pointé
+//Paramètre d'entrée : une liste circulaire
+//Paramètre de sortie : une liste circulaire avec l'élément pointé en moins
+//Pré-condition : la liste est initialisée
+//Post-condition : l'élément pointé est supprimé
+Procédure supp(p : Pointeur maillon ; p : Pointeur maillon)
+Début
+	Avec tmp : Pointeur maillon
+	Si p ≠ NULL Alors
+		Si (Contenu p).suivant ≠ p Alors
+			tmp <- (Contenu p).suivant
+			(Contenu p).numero <- (Contenu tmp).numero
+			(Contenu p).suivant <- (Contenu tmp).suivant
+			Détruire tmp
+		Sinon
+			Détruire p
+			p <- NULL
+		Fin Si
+	Fin Si
+Fin supp
+
+//Procédure permettant d'afficher la liste circulaire
+//Paramètres d'entrée : une liste circulaire
+//Pré-condition : la liste est initialisée
+Procédure affiche(p : Pointeur maillon)
+Début
+	Avec tmp : Pointeur maillon
+	tmp <- p
+	Si p ≠ NULL Alors
+		Répéter
+			Afficher (Contenu tmp).numero
+			tmp <- (Contenu tmp).suivant
+		Tant Que (tmp ≠ p)
+	Fin Si
+Fin affiche
+
+//Procédure permettant de faire une rotation d'un cran
+//Paramètre d'entrée : une liste circulaire
+//Paramètre de sortie : une liste circulaire
+//Pré-condition : la liste est initialisée
+//Post-condition : le pointeur pointe vers le maillon suivant
+Procédure rotation(p : Pointeur maillon ; p : Pointeur maillon)
+Début
+	Si p ≠ NULL Alors
+		p <- (Contenu p).suivant
+	Fin Si
+Fin rotation
+
+//Procédure permettant d'insérer un nouveau maillon dans la liste circulaire
+//Paramètres d'entrée : un liste circulaire
+//						un maillon
+//Paramètres de sortie : un liste circulaire avec un maillon en plus
+//Pré-condition : la liste est initialisée
+//Post-condition : le maillon a été ajouté
+Procédure ajout(p : Pointeur maillon , nm : maillon ; p : Pointeur maillon)
+Début
+	Avec tmp : Pointeur maillon
+		 n : Entier
+	tmp <- Adresse nm
+	Si p ≠ NULL Alors
+		(Contenu tmp).suivant <- (Contenu p).suivant
+		(Contenu p).suivant <- tmp
+		n <- (Contenu p).numero
+		(Contenu p).numero <- (Contenu tmp).numero
+		(Contenu tmp).numero <- n
+	Sinon
+		p <- tmp
+		(Contenu tmp).suivant <- tmp
+	Fin Si
+Fin ajout
+
+//Fonction permettant d'obtenir le nombre de maillon d'une liste
+//Paramètres d'entrée : une liste circulaire
+//Valeur retournée : le nombre de maillon de cette liste
+//Pré-condition : la liste est initialisée
+Fonction nbMaillon(p : Pointeur maillon) Retourne Entier
+Début
+	Avec tmp : Pointeur maillon
+		 cpt : Entier
+	
+	Si p ≠ NULL Alors
+		tmp <- p
+		cpt <- 0
+		Répéter
+			cpt <- cpt + 1
+			tmp <- (Contenu tmp).suivant
+		Tant Que tmp ≠ p
+		Retourne cpt
+	Sinon
+		Retourne 0
+	Fin Si
+Fin nbMaillon

@@ -1,0 +1,55 @@
+Utilise listeCirculaire
+
+Programme liste
+Début
+	Avec p : Pointeur maillon
+		 tmp_maillon : maillon
+		 continuer : Booléen
+		 choix : Entier
+		 numero : Entier
+		 nbr : Entier
+	
+	continuer <- Vrai
+	init(p)
+	
+	Tant Que continuer Faire
+		Afficher "LISTE CIRCULAIRE"
+		Afficher "1. Afficher la liste"
+		Afficher "2. Ajouter un élément"
+		Afficher "3. Compter le nombre de maillons"
+		Afficher "4. Faire une rotation"
+		Afficher "5. Désinitialiser la liste"
+		Afficher "6. QUITTER"
+		
+		Afficher "Saisir choix : "s
+		Saisir choix
+		Selon choix Faire
+			Cas 1 : 
+				affiche(p)
+			
+			Cas 2 :
+				Afficher "Numéro de l'élément : "
+				Saisir numero
+				tmp_maillon.numero <- numero
+				ajouter(p, tmp_maillon)
+				
+			Cas 3 :
+				nbr <- nbMaillon(p)
+				Afficher "Nombre de maillons : "
+				Afficher nbr
+				
+			Cas 4 : 
+				rotation(p)
+			
+			Cas 5 : 
+				desinit(p)
+				
+			Cas 6 : 
+				desinit(p)
+				continuer <- Faux
+			
+			Défaut :
+				Afficher "Votre choix n'est pas valide"
+		Fin Faire
+	Fin Faire
+Fin liste
