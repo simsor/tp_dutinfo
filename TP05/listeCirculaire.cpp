@@ -25,7 +25,7 @@ void supp(struct maillon **pp)
 {
     struct maillon *tmp;
     if ((*pp) != NULL) {
-        if ( (*(*pp)).suivant != NULL) {
+        if ( (*(*pp)).suivant != (*(*pp)).suivant) {
             tmp = (*(*pp)).suivant;
             (*(*pp)).numero = (*tmp).numero;
             (*(*pp)).suivant = (*tmp).suivant;
@@ -57,23 +57,20 @@ void rotation(struct maillon **pp)
     }
 }
 
-void ajout(struct maillon **pp, struct maillon nm)
+void ajout(struct maillon **p, struct maillon *nm)
 {
-    struct maillon *tmp;
     int n;
     
-    tmp = &nm;
-    
-    if ((*pp) != NULL) {
-        (*tmp).suivant = (*(*pp)).suivant;
-        (*(*pp)).suivant = tmp;
-        n = (*(*pp)).numero;
-        (*(*pp)).numero = (*tmp).numero;
-        (*tmp).numero = n;
+    if ((*p) != NULL) {
+        (*nm).suivant = (*(*p)).suivant;
+        (*(*p)).suivant = nm;
+        n = (*(*p)).numero;
+        (*(*p)).numero = (*nm).numero;
+        (*nm).numero = n;
     }
     else {
-        (*pp) = tmp;
-        (*tmp).suivant = tmp;
+        (*p) = nm;
+        (*nm).suivant = nm;
     }
 }
 

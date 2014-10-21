@@ -79,20 +79,19 @@ Fin rotation
 //Paramètres de sortie : un liste circulaire avec un maillon en plus
 //Pré-condition : la liste est initialisée
 //Post-condition : le maillon a été ajouté
-Procédure ajout(p : Pointeur maillon , nm : maillon ; p : Pointeur maillon)
+Procédure ajout(p : Pointeur maillon , nm : Pointeur maillon ; p : Pointeur maillon)
 Début
-	Avec tmp : Pointeur maillon
-		 n : Entier
-	tmp <- Adresse nm
+	Avec n : Entier
+	
 	Si p ≠ NULL Alors
-		(Contenu tmp).suivant <- (Contenu p).suivant
-		(Contenu p).suivant <- tmp
+		(Contenu nm).suivant <- (Contenu p).suivant
+		(Contenu p).suivant <- nm
 		n <- (Contenu p).numero
-		(Contenu p).numero <- (Contenu tmp).numero
-		(Contenu tmp).numero <- n
+		(Contenu p).numero <- (Contenu nm).numero
+		(Contenu nm).numero <- n
 	Sinon
-		p <- tmp
-		(Contenu tmp).suivant <- tmp
+		p <- nm
+		(Contenu nm).suivant <- nm
 	Fin Si
 Fin ajout
 

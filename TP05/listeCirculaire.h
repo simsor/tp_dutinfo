@@ -23,6 +23,6 @@ void desinit(struct maillon **pp);
 void supp(struct maillon **pp);
 void affiche(struct maillon *p);
 void rotation(struct maillon **pp);
-void ajout(struct maillon *p, struct maillon nm);
+void ajout(struct maillon **p, struct maillon *nm);
 int nbMaillon(struct maillon *p);
 #endif /* defined(__TP05__listeCirculaire__) */

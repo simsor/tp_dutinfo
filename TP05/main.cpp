@@ -12,7 +12,7 @@
 int main(int argc, const char * argv[]) {
 
     struct maillon *p;
-    struct maillon tmp;
+    struct maillon *tmp;
     bool continuer;
     int choix;
     int nbr;
@@ -40,11 +40,34 @@ int main(int argc, const char * argv[]) {
             case 2:
                 cout << "Numéro de l'élément : ";
                 cin >> numero;
-                tmp.numero = numero;
-                ajout(p, tmp);
+				tmp = new struct maillon;
+                (*tmp).numero = numero;
+                ajout(&p, tmp);
+				break;
             
             case 3:
                 nbr = nbMaillon(p);
+				cout << "Il y a " << nbr << " éléments dans la liste" << endl;
+				break;
+
+		    case 4:
+				if (nbMaillon(p) > 0) {
+					rotation(&p);
+					cout << "Rotation effectuée." << endl;
+				}
+				else
+					cout << "La liste est vide, impossible de faire une rotation." << endl;
+			    break;
+
+		    case 5:
+			    desinit(&p);
+			    cout << "Liste désinitialisée." << endl;
+			    break;
+
+		    case 6:
+				continuer = false;
+				break;
+				
             default:
                 break;
         }

@@ -1,0 +1,33 @@
+| Cas testé                                      |    Entrée | Résultat                                    |
+|------------------------------------------------+-----------+---------------------------------------------|
+| Désinitialiser une liste vide                  |         5 | Liste désinitialisée                        |
+| Afficher une liste vide                        |         1 | (Rien)                                      |
+| Compter le nombre de maillons d’une liste vide |         3 | Il y a 0 élément dans cette liste           |
+| Faire une rotation d’une liste vide            |         4 | Liste vide impossible de faire une rotation |
+| Ajouter un élément                             |  2 puis 4 | Élément ajouté                              |
+| Afficher la liste                              |         1 | 4                                           |
+| Compter le nombre de maillons                  |         3 | Il y a 1 élément dans cette list            |
+| Faire une rotation                             |         4 | Rotation effectuée                          |
+| Désinitialiser la liste                        |         5 | Liste désinitialisée                        |
+| Afficher la liste                              |         1 | (Rien)                                      |
+| Compter le nombre de maillons                  |         3 | Il y a 0 élément dans cette liste           |
+| Ajouter des éléments                           | 2 puis 15 |                                             |
+|                                                | 2 puis 24 |                                             |
+|                                                | 2 puis 33 |                                             |
+|                                                | 2 puis 42 |                                             |
+|                                                | 2 puis 51 | Éléments ajoutés                            |
+| Afficher la liste                              |         1 | 51 42 33 15                                 |
+| Compter le nombre de maillons                  |         3 | Il y a 5 éléments dans cette liste          |
+| Faire une rotation                             |         4 | Rotation effectuée                          |
+| Afficher la liste                              |         1 | 42 33 15 51                                 |
+| Quitter                                        |         6 | Le programme se ferme                       |
+
+/!\ ATTENTION : fichier listeCirculaire.cpp modifié, en particulier la fonction supp qui buggait
+(On attendait que *p.suivant soit NULL, alors que quand il n'y a qu'un seul élément, *p.suivant = p)
+Le main.cpp et principal.txt sont modifiés aussi pour ne pas faire de rotation si la liste est vide
+
+Sinon les jeux d'essai étaient parfaits (tous les cas sont testés)
+
+* Fautes
+Création module => Analyse : listeCiruclaire au lieu de Circulaire
+/Compter ne nombre de maillon/

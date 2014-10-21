@@ -3,7 +3,7 @@ Utilise listeCirculaire
 Programme liste
 Début
 	Avec p : Pointeur maillon
-		 tmp_maillon : maillon
+		 tmp_maillon : Pointeur maillon
 		 continuer : Booléen
 		 choix : Entier
 		 numero : Entier
@@ -21,7 +21,7 @@ Début
 		Afficher "5. Désinitialiser la liste"
 		Afficher "6. QUITTER"
 		
-		Afficher "Saisir choix : "s
+		Afficher "Saisir choix : "
 		Saisir choix
 		Selon choix Faire
 			Cas 1 : 
@@ -30,7 +30,8 @@ Début
 			Cas 2 :
 				Afficher "Numéro de l'élément : "
 				Saisir numero
-				tmp_maillon.numero <- numero
+				tmp_maillon <- Nouveau maillon
+				(*tmp_maillon).numero <- numero
 				ajouter(p, tmp_maillon)
 				
 			Cas 3 :
@@ -39,7 +40,11 @@ Début
 				Afficher nbr
 				
 			Cas 4 : 
-				rotation(p)
+				Si nbMaillon(p) > 0:
+				   rotation(p)
+				Sinon
+					Afficher "Erreur, la liste est vide"
+				Fin si
 			
 			Cas 5 : 
 				desinit(p)
