@@ -1,0 +1,201 @@
+Module arbre
+
+Utilise listeChainee
+
+Type noeud = {
+	etiquette : car
+	ag, ad : pointeur noeud
+	}
+
+Typa abin = Pointeur noeud
+
+//Procédure permettant de créer un arbre
+//Paramètre de sortie : un arbre
+//Post-conditions : l'arbre est créé
+Procédure arbNouv( ; a : abin)
+Début
+	a <- NULL
+Fin arbNouv
+
+
+//Procédure permettant de désinitialiser un arbre
+//Paramètre d'entrée : un arbre
+//Paramètre de sortie : un arbre désinitialisé
+//Pré-condition : l'arbre est initialisé
+//Post-condition : l'arbre est vide et désinitialisé
+Procédure desinit( a : abin ; a : abin)
+Début
+	Si a ≠ NULL Alors
+		desinit((Contenu a).ag)
+		desinit((Contenu a).ad)
+		(Contenu a).ag <- NULL
+		(Contenu a).ad <- NULL
+		Détruire a
+	Fin Si
+Fin desinit
+
+
+//Fonction permettant d'enraciner deux arbres à un noeud donné
+//Paramètres d'entrée : Deux arbres gauche et droit
+//						Un noeud
+//Valeur retournée : un arbre composé du noeud donné comme racine et des arbres
+//					 droit et gauche
+Fonction enracine( etiq : car, g : abin, d : abin) Retourne abin
+Début
+	Avec nd : abin
+	nd <- Nouveau noeud
+	(Contenu nd).etiquette <- etiq
+	(Contenu nd).ag <- g
+	(Contenu nd).ad <- d
+	Retourne nd
+Fin enracine
+
+
+//Fonction retournant le sous-arbre gauche
+//Paramètre d'entrée : un arbre
+//Valeur retournée : le sous-arbre gauche
+//Pré-condition : l'arbre est initialisé
+Fonction gauche( a : abin) Retourne abin
+Début
+	Si a ≠ NULL Alors
+		Retourne (Contenu a).ag
+	Sinon
+		Retourne NULL
+	Fin Si
+Fin gauche
+
+
+//Fonction retournant le sous-arbre droit
+//Paramètre d'entrée : un arbre
+//Valeur retournée : le sous-arbre droit
+//Pré-condition : l'arbre est initialisé
+Fonction droit( a : abin) Retourne abin
+Début
+	Si a ≠ NULL Alors
+		Retourne (Contenu a).ad
+	Sinon
+		Retourne NULL
+	Fin Si
+Fin droit
+
+
+//Fonction permettant de savoir si un arbre est vide
+//Paramètre d'entrée : un arbre
+//Valeur retournée : un booléen indiquant si l'arbre est vide
+//Pré-condition : L'arbre est initialisé
+Fonction est_vide( a : abin) Retourne Booléen
+Début
+	Retourne (a = NULL)
+Fin est_vide
+
+
+//Fonction retournant la racine
+//Paramètre d'entrée : un arbre
+//Valeur retournée : la racine
+//Pré-condition : l'arbre est initialisé
+Fonction racine( a : abin) Retourne noeud
+Début
+	Si a ≠ NULL Alors
+		Retourne (Contenu a)
+	Sinon
+		Retourne NULL
+	Fin Si
+Fin racine
+
+
+//Fonction permettant de calculer la hauteur
+//Paramètre d'entrée : un arbre
+//Valeur retournée : la hauteur de l'arbre
+//Pré-condition : l'arbre est initialisé
+Fonction hauteur( a : abin) Retourne Entier
+Début
+	Avec gauche : Entier
+		 droit : Entier
+	gauche <- 0
+	droit <- 0
+	Si a ≠ NULL Alors
+		gauche <- hauteur((Contenu a).ag)
+		droit <- hauteur((Contenu a).ad)
+		Retourne (1 + (gauche > droite) ? gauche:droite)
+	Sinon
+		Retourne 0
+	Fin Si
+Fin hauteur
+
+
+//Fonction parcourant l'arbre en profondeur (préfixe)
+//Paramètre d'entrée : un arbre
+//Valeur retournée : une liste chainée
+//Pré-condition : l'arbre est initialisé
+Fonction profPrefixe( a : abin) Retourne Pointeur maillon
+Début
+	Avec np : Pointeur maillon
+		 m_etiq : Pointeur maillon
+	Si a ≠ NULL Alors
+		initListe(np)
+		m_etiq <- Nouveau maillon
+		(Contenu m_etiq).contenu <- (Contenu a).etiquette
+		ajoutEnQueue(np, m_etiq)
+		concatListe(np, profPrefixe((Contenu a).ag))
+		concatListe(np, profPrefixe((Contenu a).ad))
+		Retourne np
+	Sinon
+		Retourne NULL
+	Fin Si
+Fin profPrefixe
+
+
+//Fonction parcourant l'arbre en profondeur (infixe)
+//Paramètre d'entrée : un arbre
+//Valeur retournée : une liste chainée
+//Pré-condition : l'arbre est initialisé
+Fonction profInfixe( a : abin) Retourne Pointeur maillon
+Début
+	Avec np : Pointeur maillon
+		 m_etiq : Pointeur maillon
+	Si a ≠ NULL Alors
+		initListe(np)
+		m_etiq <- Nouveau maillon
+		(Contenu m_etiq).contenu <- (Contenu a).etiquette
+		concatListe(np, profInfixe((Contenu a).ag))
+		ajoutEnQueue(np, m_etiq)
+		concatListe(np, profInfixe((Contenu a).ad))
+		Retourne np
+	Sinon
+		Retourne NULL
+	Fin Si
+Fin profInfixe
+
+
+//Fonction parcourant l'arbre en profondeur (postfixe)
+//Paramètre d'entrée : un arbre
+//Valeur retournée : une liste chainée
+//Pré-condition : l'arbre est initialisé
+Fonction profPostfixe( a : abin) Retourne Pointeur maillon
+Début
+	Avec np : Pointeur maillon
+		 m_etiq : Pointeur maillon
+	Si a ≠ NULL Alors
+		initListe(np)
+		m_etiq <- Nouveau maillon
+		(Contenu m_etiq).contenu <- (Contenu a).etiquette
+		concatListe(np, profPostfixe((Contenu a).ag))
+		concatListe(np, profPostfixe((Contenu a).ad))
+		ajoutEnQueue(np, m_etiq)
+		Retourne np
+	Sinon
+		Retourne NULL
+	Fin Si
+Fin profPostfixe
+
+
+//Fonction parcourant l'arbre en largeur
+//Paramètre d'entrée : un arbre
+//Valeur retournée : une liste chainée
+//Pré-condition : l'arbre est initialisé
+Fonction largeur( a : abin)
+Début
+	Avec 0
+Fin largeur
+
+Fin arbre

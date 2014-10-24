@@ -1,0 +1,18 @@
+Programme principal
+
+	Avec a1, a2, a3 : abin
+	a1 <- arbNouv()
+	a2 <- arbNouv()
+	a3 <- arbNouv()
+	a1 <- enracine('q', NULL, NULL)
+	a2 <- enracine('b', NULL, NULL)
+	a3 <- enracine('p', a1, a2)
+	a1 <- enracine('u', NULL, NULL)
+	a2 <- enracine('t', a1, a3)
+	a1 <- enracine('t', NULL, NULL)
+	a1 <- enracine('s', a1, NULL)
+	a3 <- enracine('v', NULL, NULL)
+	a3 <- enracine('r', a3, a1)
+	a1 <- enracine('a', a3, a2)
+	
+Fin principal
