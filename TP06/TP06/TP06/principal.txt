@@ -1,6 +1,8 @@
 Programme principal
 
 	Avec a1, a2, a3 : abin
+	     listeChainee : Pointeur maillon
+
 	a1 <- arbNouv()
 	a2 <- arbNouv()
 	a3 <- arbNouv()
@@ -14,5 +16,27 @@ Programme principal
 	a3 <- enracine('v', NULL, NULL)
 	a3 <- enracine('r', a3, a1)
 	a1 <- enracine('a', a3, a2)
+
+	Afficher "Hauteur de l'arbre : "
+	Afficher hauteur(a1)
+	
+	Afficher "Parcours en profondeur préfixe : "
+	listeChainee <- profPrefixe(a1)
+	afficherListe(listeChainee)
+
+	Afficher "Parcours en profondeur infixe : "
+	desinitListe(listeChainee)
+	listeChainee <- profInfixe(a1)
+	afficherListe(listeChainee)
+
+	Afficher "Parcours en profondeur postfixe : "
+	desinitListe(listeChainee)
+	listeChainee <- profPostfixe(a1)
+	afficherListe(listeChainee)
+
+	Afficher "Parcours en largeur : "
+	desinitListe(listeChainee)
+	listeChainee <- largeur(a1)
+	afficherListe(a1)
 	
 Fin principal

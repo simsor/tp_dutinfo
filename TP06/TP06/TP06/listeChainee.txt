@@ -126,3 +126,17 @@ Fonction queueListe(p : Pointeur maillon) Retourne maillon
 Début
 	Retourne (Contenu p)
 Fin queueListe
+
+
+// Procédure permettant d'afficher la liste
+// Paramètre d'entrée : une liste
+// Pré-condition : la liste est initialisée
+Procédure afficherListe(p : Pointeur maillon)
+Début
+	Avec tmp : Pointeur maillon
+	tmp <- p
+	Tant que tmp != NULL Faire
+		Afficher (Contenu tmp).contenu
+		tmp <- (Contenu tmp).suivant
+	Fin Faire
+Fin afficherListe 
