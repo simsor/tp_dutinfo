@@ -193,9 +193,49 @@ Fin profPostfixe
 //Paramètre d'entrée : un arbre
 //Valeur retournée : une liste chainée
 //Pré-condition : l'arbre est initialisé
-Fonction largeur( a : abin)
+Fonction largeur( a : abin) Retourne Pointeur maillon
 Début
-	Avec 0
+	Avec np : Pointeur maillon
+		 hauteurArbre : Entier
+		 i : Entier
+	Si a != NULL Alors
+	   	initListe(np)
+	   	hauteurArbre <- hauteur(a)
+		Pour i de 0 à hauteur - 1 Faire
+			 concatListe(np, valeursAuNiveau(a, i))
+		Fin Faire
+		
+		Retourne np
+	Sinon
+		Retourne NULL
+	Fin Si
 Fin largeur
+
+
+// Fonction retournant une liste chainée contenant les etiquettes au niveau donnée
+// Paramètres d'entrée : un arbre et un niveau
+// Valeur retournée : une liste chainée contenant les étiquettes
+// Pré-condition : l'arbre est initialisé, le niveau est >= 0
+Fonction valeursAuNiveau(a : abin, niveau : Entier) Retourne Pointeur maillon
+Début
+	Avec m_etiq : Pointeur maillon
+		 np : Pointeur maillon
+	Si a != NULL Alors
+	   	Si niveau = 0 Alors
+		   	initListe(np)
+		   	m_etiq <- Nouveau maillon
+		   	(Contenu m_etiq).contenu <- (Contenu a).etiquette
+		   	ajoutEnQueue(np, m_etiq)
+		   	Retourne np
+		Sinon
+			initListe(np)
+			concatListe(np, valeursAuNiveau((Contenu a).ag, niveau - 1))
+			concatListe(np, valeursAuNiveau((Contenu a).ad, niveau - 1))
+			Retourne np
+		Fin Si
+	Sinon
+		Retourne NULL
+	Fin Si
+Fin valeursAuNiveau
 
 Fin arbre
