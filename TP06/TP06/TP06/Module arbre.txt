@@ -92,14 +92,10 @@ Fin est_vide
 //Fonction retournant la racine
 //Paramètre d'entrée : un arbre
 //Valeur retournée : la racine
-//Pré-condition : l'arbre est initialisé
+//Pré-condition : l'arbre est initialisé et il a une racine
 Fonction racine( a : abin) Retourne noeud
 Début
-	Si a ≠ NULL Alors
-		Retourne (Contenu a)
-	Sinon
-		Retourne NULL
-	Fin Si
+	Retourne (Contenu a)
 Fin racine
 
 

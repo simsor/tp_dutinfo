@@ -56,7 +56,7 @@ Fin ajoutEnQueue
 //Paramètre de sortie : une liste chainée composée des deux précédentes
 //Pré-condition : les listes sont initialisées
 //Post-condition : la deuxième liste est ajoutée à la fin de la première
-Procédure concatListe( l1 : Pointeur maillon, l2 : Pointeur maillon ; l : Pointeur maillon)
+Procédure concatListe( l1 : Pointeur maillon, l2 : Pointeur maillon ; l1 : Pointeur maillon)
 Début
 	Avec tmp : Pointeur maillon
 	tmp <- l1
@@ -93,6 +93,8 @@ Début
 		Détruire tmp
 		Si avantdernier ≠ NULL Alors
 			(Contenu avantdernier).suivant <- NULL
+		Sinon
+			p <- NULL
 		Fin Si
 	Fin Si
 Fin supprQueue
