@@ -9,9 +9,8 @@ Type noeud = {
 
 Typa abin = Pointeur noeud
 
-//Procédure permettant de créer un arbre
-//Paramètre de sortie : un arbre
-//Post-conditions : l'arbre est créé
+//Fonction permettant de créer un arbre
+//Valeur retournée : un nouvel arbre
 Procédure arbNouv( ; a : abin)
 Début
 	a <- NULL
@@ -216,15 +215,14 @@ Fonction valeursAuNiveau(a : abin, niveau : Entier) Retourne Pointeur maillon
 Début
 	Avec m_etiq : Pointeur maillon
 		 np : Pointeur maillon
+	initListe(np)
 	Si a != NULL Alors
 	   	Si niveau = 0 Alors
-		   	initListe(np)
 		   	m_etiq <- Nouveau maillon
 		   	(Contenu m_etiq).contenu <- (Contenu a).etiquette
 		   	ajoutEnQueue(np, m_etiq)
 		   	Retourne np
 		Sinon
-			initListe(np)
 			concatListe(np, valeursAuNiveau((Contenu a).ag, niveau - 1))
 			concatListe(np, valeursAuNiveau((Contenu a).ad, niveau - 1))
 			Retourne np

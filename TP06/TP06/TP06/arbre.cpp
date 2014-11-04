@@ -71,7 +71,7 @@ int hauteur(abin a)
 	if (a != NULL) {
 		gauche = hauteur((*a).ag);
 		droite = hauteur((*a).ad);
-		return (1 + (gauche > droite) ? gauche : droite);
+		return (1 + ((gauche > droite) ? gauche : droite));
 	}
 	else
 		return 0;
@@ -150,13 +150,15 @@ struct maillon* valeursAuNiveau(abin a, int niveau)
 	struct maillon *np, *m_etiq;
 	initListe(&np);
 	if (a != NULL) {
-		m_etiq = new struct maillon;
-		(*m_etiq).contenu = (*a).etiquette;
-		ajoutEnQueue(&np, m_etiq);
-	}
-	else {
-		concatListe(&np, valeursAuNiveau((*a).ag, niveau - 1));
-		concatListe(&np, valeursAuNiveau((*a).ag, niveau - 1));
+		if (niveau == 0) {
+			m_etiq = new struct maillon;
+			(*m_etiq).contenu = (*a).etiquette;
+			ajoutEnQueue(&np, m_etiq);
+		}
+		else {
+			concatListe(&np, valeursAuNiveau((*a).ag, niveau - 1));
+			concatListe(&np, valeursAuNiveau((*a).ad, niveau - 1));
+		}
 	}
 
 	return np;
