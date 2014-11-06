@@ -1,0 +1,16 @@
+* Jeux d'essai
+NB : on utilise l'arbre donné en exemple dans le TP
+J'ai l'impression que ce jeu d'essai est pas trop utile, à part pour dire qu'on obtient bien ce qu'on attends.
+
+| Action testée                 | Résultat attendu    | Résultat du programme |
+|-------------------------------+---------------------+-----------------------|
+| Parcours en longueur préfixe  | a r v s t t u p q b | a r v s t t u p q b   |
+| Parcours en longueur infixe   | v r t s a u t q p b | v r t s a u t q p b   |
+| Parcours en longueur postfixe | v t s r u q b p t a | v t s r u q b p t a   |
+| Parcours en largeur           | a r t v s u p t q b | a r t v s u p t q b   |
+| Hauteur de l'arbre            | 4                   | 4                     |
+|-------------------------------+---------------------+-----------------------|
+
+
+* Corrections
+Analyse du travail à faire -> créer un nouvel arbre -> y'a écrit "abre" au lieu de "arbre"
