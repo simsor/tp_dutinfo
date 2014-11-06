@@ -102,9 +102,9 @@ struct maillon* profInfixe(abin a)
 		initListe(&np);
 		m_etiq = new struct maillon;
 		(*m_etiq).contenu = (*a).etiquette;
-		concatListe(&np, profPrefixe((*a).ag));
+		concatListe(&np, profInfixe((*a).ag));
 		ajoutEnQueue(&np, m_etiq);
-		concatListe(&np, profPrefixe((*a).ad));
+		concatListe(&np, profInfixe((*a).ad));
 		return np;
 	}
 	else
@@ -119,8 +119,8 @@ struct maillon* profPostfixe(abin a)
 		initListe(&np);
 		m_etiq = new struct maillon;
 		(*m_etiq).contenu = (*a).etiquette;
-		concatListe(&np, profPrefixe((*a).ag));
-		concatListe(&np, profPrefixe((*a).ad));
+		concatListe(&np, profPostfixe((*a).ag));
+		concatListe(&np, profPostfixe((*a).ad));
 		ajoutEnQueue(&np, m_etiq);
 		return np;
 	}
